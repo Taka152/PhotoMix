@@ -14,7 +14,7 @@ class DataManager: NSObject {
    
     private func userDocumentDirectory() -> String {
         let userDocumentDirectory = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        return userDocumentDirectory[0] as! String
+        return userDocumentDirectory[0] 
     }
     
     private func archivePath() -> String {
@@ -28,7 +28,10 @@ class DataManager: NSObject {
     func invalidateArchive() {
         let archivePath = self.archivePath()
         if NSFileManager.defaultManager().fileExistsAtPath(archivePath) {
-            NSFileManager.defaultManager().removeItemAtPath(archivePath, error: nil)
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(archivePath)
+            } catch _ {
+            }
         }
     }
     
@@ -43,10 +46,10 @@ class DataManager: NSObject {
         var index = 0
         for view in canvas.subviews {
             archiver.encodeObject(view, forKey: String(index))
-            index++
+            index += 1
         }
         archiver.finishEncoding()
-        let status = archiveData.writeToFile(self.archivePath(), atomically: true)
+        _ = archiveData.writeToFile(self.archivePath(), atomically: true)
     }
     
     func unarchiveCanvas()->NSArray? {
@@ -61,7 +64,7 @@ class DataManager: NSObject {
                 let touchView = view as! TouchView
                 touchView.restoreProperties()
                 viewArray.addObject(touchView)
-                index++
+                index += 1
                 view = unarchiver.decodeObjectForKey(String(index))
             }
             unarchiver.finishDecoding()
