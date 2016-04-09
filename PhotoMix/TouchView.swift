@@ -48,7 +48,7 @@ class TouchView: UIView {
         self.baseSetup()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.baseSetup()
     }
@@ -73,9 +73,9 @@ class TouchView: UIView {
     
     
     // MARK: UIResponder touch event handling
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        var currentTouches = NSMutableSet(set: event.touchesForView(self)!)
+        let currentTouches = NSMutableSet(set: event!.touchesForView(self)!)
         currentTouches.minusSet(touches)
         if currentTouches.count > 0 {
             self.updateOriginalTransformForTouches(currentTouches)
@@ -84,27 +84,27 @@ class TouchView: UIView {
         self.cacheBeginPointForTouches(touches)
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let incrementalTransform = self.incrementalTransformWithTouches(event.touchesForView(self)!)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let incrementalTransform = self.incrementalTransformWithTouches(event!.touchesForView(self)!)
         self.transform = CGAffineTransformConcat(originalTransform, incrementalTransform)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        for touch in touches as! Set<UITouch> {
+        for touch in touches {
             if touch.tapCount >= 2 {
                 self.superview!.bringSubviewToFront(self)
             }
         }
-        self.updateOriginalTransformForTouches(event.touchesForView(self)!)
+        self.updateOriginalTransformForTouches(event!.touchesForView(self)!)
         self.removeTouchesFromCache(touches)
-        var remainingTouches = NSMutableSet(set: event.touchesForView(self)!)
+        let remainingTouches = NSMutableSet(set: event!.touchesForView(self)!)
         remainingTouches.minusSet(touches)
         self.cacheBeginPointForTouches(remainingTouches)
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        self.touchesEnded(touches, withEvent: event)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        self.touchesEnded(touches!, withEvent: event)
     }
     
     
@@ -195,7 +195,7 @@ class TouchView: UIView {
             
             let dictValue = CFDictionaryGetValue(touchBeginPoints, unsafeAddressOf(touch))
             if dictValue != nil {
-                let point = UnsafePointer<CGPoint>(dictValue)
+                _ = UnsafePointer<CGPoint>(dictValue)
                 free(UnsafeMutablePointer<Void>(dictValue))
                 CFDictionaryRemoveValue(touchBeginPoints, unsafeAddressOf(touch))
             }
