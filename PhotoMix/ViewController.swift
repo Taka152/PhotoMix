@@ -13,7 +13,7 @@ extension UIView {
     func toImage() -> UIImage {
         let imageSize = self.bounds.size
         UIGraphicsBeginImageContext(imageSize);
-        self.layer.renderInContext(UIGraphicsGetCurrentContext())
+        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
@@ -208,7 +208,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             UIAlertAction(
                 title: "Continue",
                 style: UIAlertActionStyle.Default,
-                handler: { (action:UIAlertAction!) -> Void in
+                handler: { (action:UIAlertAction) -> Void in
                     self.clearCanvas()
             }))
         
@@ -226,7 +226,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             UIAlertAction(
                 title: "Camera",
                 style: UIAlertActionStyle.Default,
-                handler: { (action:UIAlertAction!) -> Void in
+                handler: { (action:UIAlertAction) -> Void in
                     
                     if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
                         
@@ -251,7 +251,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             UIAlertAction(
                 title: "Photo Album",
                 style: UIAlertActionStyle.Default,
-                handler: { (action:UIAlertAction!) -> Void in
+                handler: { (action:UIAlertAction) -> Void in
                     
                     if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                         
@@ -311,7 +311,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             UIAlertAction(
                 title: "Continue",
                 style: UIAlertActionStyle.Default,
-                handler: { (action:UIAlertAction!) -> Void in
+                handler: { (action:UIAlertAction) -> Void in
                     self.deletePhoto()
             }))
         
