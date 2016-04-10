@@ -26,7 +26,7 @@ extension UITouch {
 
 class TouchView: UIView {
 
-    static let horizontalMargin:CGFloat = 30, verticalMargin:CGFloat = 10
+    static let horizontalMargin:CGFloat = 0, verticalMargin:CGFloat = 0
     
     lazy var originalTransform = {
         return CGAffineTransformIdentity
@@ -64,10 +64,10 @@ class TouchView: UIView {
         self.userInteractionEnabled = true
         self.multipleTouchEnabled = true
         self.exclusiveTouch = true
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 10
-        self.layer.borderColor = UIColor.grayColor().CGColor
-        self.layer.borderWidth = 1
+        self.clipsToBounds = false
+//        self.layer.cornerRadius = 0
+//        self.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.layer.borderWidth = 0
         self.backgroundColor = UIColor(white: 1, alpha: 1)
     }
     

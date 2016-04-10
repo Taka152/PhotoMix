@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -21,23 +22,22 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc2-ga-AEp" userLabel="CanvasView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.66666666669999997" green="0.51358163160000003" blue="0.44604075209999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="model-1" translatesAutoresizingMaskIntoConstraints="NO" id="0o1-eK-yqN">
+                                        <rect key="frame" x="8" y="20" width="359" height="596"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99900884362196274" green="0.98707381346406431" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0o1-eK-yqN" secondAttribute="bottom" constant="51" id="FgP-ZA-YnF"/>
+                                    <constraint firstItem="0o1-eK-yqN" firstAttribute="leading" secondItem="kc2-ga-AEp" secondAttribute="leadingMargin" id="epu-lt-VTS"/>
+                                    <constraint firstItem="0o1-eK-yqN" firstAttribute="top" secondItem="kc2-ga-AEp" secondAttribute="top" constant="20" id="vXW-CS-nuE"/>
+                                    <constraint firstItem="0o1-eK-yqN" firstAttribute="trailing" secondItem="kc2-ga-AEp" secondAttribute="trailingMargin" id="yo8-R2-LpJ"/>
+                                </constraints>
                             </view>
                             <view alpha="0.39999999999999997" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-Xv-kLp" userLabel="ButtonsView">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-rb-8kZ" userLabel="ButtonNew">
-                                        <rect key="frame" x="32" y="10" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="bZD-rb-8kZ" secondAttribute="height" id="cfe-XR-FSO"/>
-                                        </constraints>
-                                        <state key="normal" image="new-canvas">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="newCanvasButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YK-4o-b7S"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ej-sm-LLA" userLabel="ButtonPhoto">
                                         <rect key="frame" x="125" y="10" width="30" height="30"/>
                                         <constraints>
@@ -74,8 +74,20 @@
                                             <action selector="deleteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GJY-tg-Uih"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-rb-8kZ" userLabel="ButtonNew">
+                                        <rect key="frame" x="32" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bZD-rb-8kZ" secondAttribute="height" id="cfe-XR-FSO"/>
+                                        </constraints>
+                                        <state key="normal" image="new-canvas">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newCanvasButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YK-4o-b7S"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.22360585945432124" green="0.4619041996992066" blue="0.55890376984126977" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="bZD-rb-8kZ" firstAttribute="centerX" secondItem="tFq-Xv-kLp" secondAttribute="centerX" multiplier="0.25" id="EHs-9P-Dkp"/>
                                     <constraint firstItem="1Ej-sm-LLA" firstAttribute="centerX" secondItem="tFq-Xv-kLp" secondAttribute="centerX" multiplier="0.75" id="ERj-WH-8pP"/>
@@ -114,10 +126,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="302.5" y="388.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="delete" width="104" height="104"/>
+        <image name="model-1" width="750" height="1334"/>
         <image name="new-canvas" width="104" height="104"/>
         <image name="photo" width="104" height="104"/>
         <image name="save" width="104" height="104"/>

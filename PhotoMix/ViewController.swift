@@ -21,7 +21,6 @@ extension UIView {
 }
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
     @IBOutlet weak var canvasView: UIView!
     @IBOutlet weak var canvasButton: UIButton!
     @IBOutlet weak var photoButton: UIButton!
@@ -35,7 +34,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             0,
             0))
         activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        activityIndicatorView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+//        activityIndicatorView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+//        activityIndicatorView.backgroundColor = UIColor(patternImage: UIImage(named: "model-1")!)
+//        activityIndicatorView.backgroundColor =  UIColor(patternImage: UIImage(named: "model")!)
         return activityIndicatorView
     }()
     
@@ -78,7 +79,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         let imageViewSize = self.getImageViewSize(image)
         let imageView = UIImageView(frame: CGRectMake(0, 0, imageViewSize.width, imageViewSize.height))
-        imageView.center = CGPointMake(CGRectGetWidth(touchView.bounds)/2, CGRectGetHeight(touchView.bounds)/2)
+        imageView.center = CGPointMake(CGRectGetWidth(touchView.bounds)/2, CGRectGetHeight(touchView.bounds)/3)
         imageView.image = image
         touchView.addSubview(imageView)
         
