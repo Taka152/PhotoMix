@@ -33,10 +33,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.view.center.y,
             0,
             0))
-        activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-//        activityIndicatorView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
-//        activityIndicatorView.backgroundColor = UIColor(patternImage: UIImage(named: "model-1")!)
-//        activityIndicatorView.backgroundColor =  UIColor(patternImage: UIImage(named: "model")!)
+        activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         return activityIndicatorView
     }()
     
@@ -195,19 +192,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func newCanvasButtonTapped(sender: UIButton) {
         
         let alertController = UIAlertController(
-            title: "New Canvas",
-            message: "This will discard the current canvas and start fresh.\nDo you wish to continue?",
+            title: "清空",
+            message: "是否清空之前的所有的操作?",
             preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(
             UIAlertAction(
-                title: "Cancel",
+                title: "取消",
                 style: UIAlertActionStyle.Cancel,
                 handler: nil))
         
         alertController.addAction(
             UIAlertAction(
-                title: "Continue",
+                title: "继续",
                 style: UIAlertActionStyle.Default,
                 handler: { (action:UIAlertAction) -> Void in
                     self.clearCanvas()
@@ -220,12 +217,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         let alertController = UIAlertController(
             title: nil,
-            message: "Take photo using camera, or\nchoose photo from album",
+            message: "从相机获取一个新的头像或者从相册中添加",
             preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         alertController.addAction(
             UIAlertAction(
-                title: "Camera",
+                title: "照一个新头像",
                 style: UIAlertActionStyle.Default,
                 handler: { (action:UIAlertAction) -> Void in
                     
@@ -234,13 +231,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                         let imagePickerController = UIImagePickerController()
                         imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
                         imagePickerController.delegate = self
+                        //允许照片可编辑
+                        imagePickerController.allowsEditing = true
                         self.presentViewController(imagePickerController, animated: true, completion: nil)
                     }
                     else {
                         
                         let alertController = UIAlertController(
-                            title: "Error",
-                            message: "Camera is not available",
+                            title: "错误",
+                            message: "相机不可用",
                             preferredStyle: UIAlertControllerStyle.Alert)
                         
                         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -250,7 +249,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         alertController.addAction(
             UIAlertAction(
-                title: "Photo Album",
+                title: "从相册中选择",
                 style: UIAlertActionStyle.Default,
                 handler: { (action:UIAlertAction) -> Void in
                     
@@ -266,7 +265,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         alertController.addAction(
             UIAlertAction(
-                title: "Cancel",
+                title: "取消",
                 style: UIAlertActionStyle.Cancel,
                 handler: nil))
         
@@ -276,17 +275,36 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func saveButtonTapped(sender: UIButton) {
         
         if self.canvasView.subviews.count > 0 {
-            self.saveCanvasToPhotosAlbum()
+            
+            let ac = UIAlertController(
+                title: "是否保存?",
+                message: nil,
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            ac.addAction(UIAlertAction(title: "确定",
+                style: .Default)
+                { (action: UIAlertAction) in
+                    self.saveCanvasToPhotosAlbum()
+                }
+            )
+            
+            ac.addAction(UIAlertAction(title: "取消",
+                style: .Cancel,
+                handler: nil)
+            )
+            
+            self.presentViewController(ac, animated: true, completion: nil)
+            
         } else {
             
             let alertController = UIAlertController(
-                title: "Empty Canvas",
-                message: "There is nothing to be saved",
+                title: "无图片",
+                message: "没有可以保存的图片",
                 preferredStyle: UIAlertControllerStyle.Alert)
             
             alertController.addAction(
                 UIAlertAction(
-                    title: "OK",
+                    title: "确定",
                     style: UIAlertActionStyle.Default,
                     handler: nil))
             
@@ -297,26 +315,42 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     @IBAction func deleteButtonTapped(sender: UIButton) {
         
-        let alertController = UIAlertController(
-            title: "Delete Photo?",
-            message: "The selected photo will be deleted",
-            preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alertController.addAction(
-            UIAlertAction(
-                title: "Cancel",
-                style: UIAlertActionStyle.Cancel,
-                handler: nil))
-        
-        alertController.addAction(
-            UIAlertAction(
-                title: "Continue",
-                style: UIAlertActionStyle.Default,
-                handler: { (action:UIAlertAction) -> Void in
-                    self.deletePhoto()
-            }))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
+        if self.canvasView.subviews.count > 0 {
+
+            let alertController = UIAlertController(
+                title: "删除?",
+                message: "上一张照片将会被删除",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alertController.addAction(
+                UIAlertAction(
+                    title: "取消",
+                    style: UIAlertActionStyle.Cancel,
+                    handler: nil))
+            
+            alertController.addAction(
+                UIAlertAction(
+                    title: "继续",
+                    style: UIAlertActionStyle.Default,
+                    handler: { (action:UIAlertAction) -> Void in
+                        self.deletePhoto()
+                }))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            let ac = UIAlertController(
+                title: "没用可删除的图片",
+                message: nil,
+                preferredStyle: .Alert)
+            
+            ac.addAction(UIAlertAction(title: "关闭",
+                style: .Cancel,
+                handler: nil)
+            )
+            
+            self.presentViewController(ac, animated: true, completion: nil)
+
+        }
     }
 }
 

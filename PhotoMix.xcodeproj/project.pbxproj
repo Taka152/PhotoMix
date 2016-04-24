@@ -81,14 +81,12 @@
 		A22A8B7E1B01CBFB002E9F45 /* PhotoMix */ = {
 			isa = PBXGroup;
 			children = (
-				A22A8B811B01CBFB002E9F45 /* AppDelegate.swift */,
 				A22A8B831B01CBFC002E9F45 /* ViewController.swift */,
 				A22A8B851B01CBFC002E9F45 /* Main.storyboard */,
-				A22A8B881B01CBFC002E9F45 /* Images.xcassets */,
-				A22A8B8A1B01CBFC002E9F45 /* LaunchScreen.xib */,
-				A22A8B7F1B01CBFB002E9F45 /* Supporting Files */,
 				A2B3F4531B79FC8300BD3366 /* TouchView.swift */,
 				A248301A1B7E191A00C6F5AA /* DataManager.swift */,
+				A22A8B881B01CBFC002E9F45 /* Images.xcassets */,
+				A22A8B7F1B01CBFB002E9F45 /* Supporting Files */,
 			);
 			path = PhotoMix;
 			sourceTree = "<group>";
@@ -96,6 +94,8 @@
 		A22A8B7F1B01CBFB002E9F45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A22A8B8A1B01CBFC002E9F45 /* LaunchScreen.xib */,
+				A22A8B811B01CBFB002E9F45 /* AppDelegate.swift */,
 				A22A8B801B01CBFB002E9F45 /* Info.plist */,
 			);
 			name = "Supporting Files";

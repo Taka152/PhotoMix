@@ -21,19 +21,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc2-ga-AEp" userLabel="CanvasView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="model-1" translatesAutoresizingMaskIntoConstraints="NO" id="0o1-eK-yqN">
-                                        <rect key="frame" x="8" y="20" width="359" height="596"/>
-                                    </imageView>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="675"/>
                                 <color key="backgroundColor" red="0.99900884362196274" green="0.98707381346406431" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0o1-eK-yqN" secondAttribute="bottom" constant="51" id="FgP-ZA-YnF"/>
-                                    <constraint firstItem="0o1-eK-yqN" firstAttribute="leading" secondItem="kc2-ga-AEp" secondAttribute="leadingMargin" id="epu-lt-VTS"/>
-                                    <constraint firstItem="0o1-eK-yqN" firstAttribute="top" secondItem="kc2-ga-AEp" secondAttribute="top" constant="20" id="vXW-CS-nuE"/>
-                                    <constraint firstItem="0o1-eK-yqN" firstAttribute="trailing" secondItem="kc2-ga-AEp" secondAttribute="trailingMargin" id="yo8-R2-LpJ"/>
-                                </constraints>
                             </view>
                             <view alpha="0.39999999999999997" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-Xv-kLp" userLabel="ButtonsView">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -108,10 +97,10 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tFq-Xv-kLp" secondAttribute="bottom" id="3Ue-FT-mfG"/>
                             <constraint firstItem="tFq-Xv-kLp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="88K-ga-sFY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kc2-ga-AEp" secondAttribute="bottom" id="9LK-f1-b1T"/>
-                            <constraint firstItem="kc2-ga-AEp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="As3-pn-c6F"/>
-                            <constraint firstItem="kc2-ga-AEp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hp2-10-x5o"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kc2-ga-AEp" secondAttribute="trailing" constant="-16" id="vw6-Xo-X5h"/>
+                            <constraint firstItem="kc2-ga-AEp" firstAttribute="trailing" secondItem="tFq-Xv-kLp" secondAttribute="trailing" id="8vt-GS-8VI"/>
+                            <constraint firstItem="kc2-ga-AEp" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="8" symbolic="YES" id="i0w-PJ-sf9"/>
+                            <constraint firstItem="kc2-ga-AEp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="l17-s0-E5m"/>
+                            <constraint firstItem="kc2-ga-AEp" firstAttribute="leading" secondItem="tFq-Xv-kLp" secondAttribute="leading" id="ymP-xl-thu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tFq-Xv-kLp" secondAttribute="trailing" constant="-16" id="z1g-JT-K9N"/>
                         </constraints>
                     </view>
@@ -131,7 +120,6 @@
     </scenes>
     <resources>
         <image name="delete" width="104" height="104"/>
-        <image name="model-1" width="750" height="1334"/>
         <image name="new-canvas" width="104" height="104"/>
         <image name="photo" width="104" height="104"/>
         <image name="save" width="104" height="104"/>
