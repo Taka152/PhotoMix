@@ -352,5 +352,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
         }
     }
+    
+    
+    
+    // TODO: 增加一个选择已有发型的列表
+    @IBAction func selectHair(sender: AnyObject) {
+        
+        
+    }
+    
+    // TODO: 对于相机进行自主化截取
+    
+    
+    
+    
+    
 }
+
+
 

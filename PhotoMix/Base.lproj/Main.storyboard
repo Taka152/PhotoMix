@@ -3,9 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -28,33 +26,23 @@
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ej-sm-LLA" userLabel="ButtonPhoto">
-                                        <rect key="frame" x="125" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="131" y="9" width="31" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="1Ej-sm-LLA" secondAttribute="height" multiplier="1:1" id="uPh-89-0ir"/>
+                                            <constraint firstAttribute="height" constant="31" id="Zk2-Jt-spz"/>
+                                            <constraint firstAttribute="width" constant="31" id="s7S-Uq-clO"/>
                                         </constraints>
-                                        <state key="normal" image="photo">
+                                        <state key="normal" image="add_image">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="photoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wVF-3R-cZ1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHF-gJ-MjQ" userLabel="ButtonSave">
-                                        <rect key="frame" x="219" y="10" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="oHF-gJ-MjQ" secondAttribute="height" multiplier="1:1" id="ert-WG-ixC"/>
-                                        </constraints>
-                                        <state key="normal" image="save">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JO9-Ir-gqH"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iif-iK-tyj" userLabel="ButtonDelete">
-                                        <rect key="frame" x="313" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="294" y="9" width="31" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="iif-iK-tyj" secondAttribute="height" id="t8o-GF-Tkw"/>
+                                            <constraint firstAttribute="height" constant="31" id="eM7-dN-n4d"/>
+                                            <constraint firstAttribute="width" constant="31" id="qVm-8E-ZBp"/>
                                         </constraints>
                                         <state key="normal" image="delete">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,9 +52,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-rb-8kZ" userLabel="ButtonNew">
-                                        <rect key="frame" x="32" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="50" y="9" width="31" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="bZD-rb-8kZ" secondAttribute="height" id="cfe-XR-FSO"/>
+                                            <constraint firstAttribute="height" constant="31" id="UUP-Bl-jDe"/>
+                                            <constraint firstAttribute="width" constant="31" id="awc-h0-qXN"/>
                                         </constraints>
                                         <state key="normal" image="new-canvas">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,29 +64,49 @@
                                             <action selector="newCanvasButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YK-4o-b7S"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHF-gJ-MjQ" userLabel="ButtonSave">
+                                        <rect key="frame" x="213" y="9" width="31" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="31" id="bAV-Wz-DNV"/>
+                                            <constraint firstAttribute="height" constant="31" id="y3W-sv-bmd"/>
+                                        </constraints>
+                                        <state key="normal" image="save">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JO9-Ir-gqH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="bZD-rb-8kZ" firstAttribute="centerX" secondItem="tFq-Xv-kLp" secondAttribute="centerX" multiplier="0.25" id="EHs-9P-Dkp"/>
-                                    <constraint firstItem="1Ej-sm-LLA" firstAttribute="centerX" secondItem="tFq-Xv-kLp" secondAttribute="centerX" multiplier="0.75" id="ERj-WH-8pP"/>
-                                    <constraint firstItem="bZD-rb-8kZ" firstAttribute="height" secondItem="tFq-Xv-kLp" secondAttribute="height" multiplier="0.6" id="ExV-tm-kVJ"/>
-                                    <constraint firstItem="iif-iK-tyj" firstAttribute="centerX" secondItem="tFq-Xv-kLp" secondAttribute="centerX" multiplier="1.75" id="NYq-ns-jhg"/>
-                                    <constraint firstItem="oHF-gJ-MjQ" firstAttribute="height" secondItem="tFq-Xv-kLp" secondAttribute="height" multiplier="0.6" id="TsU-ZW-LKk"/>
-                                    <constraint firstAttribute="centerY" secondItem="iif-iK-tyj" secondAttribute="centerY" id="dtN-X0-YYw"/>
-                                    <constraint firstAttribute="centerY" secondItem="1Ej-sm-LLA" secondAttribute="centerY" id="fVU-FI-1Yx"/>
-                                    <constraint firstAttribute="centerY" secondItem="oHF-gJ-MjQ" secondAttribute="centerY" id="jRU-e5-Rg3"/>
-                                    <constraint firstAttribute="height" constant="50" id="oz9-Lq-Gde"/>
-                                    <constraint firstItem="iif-iK-tyj" firstAttribute="height" secondItem="tFq-Xv-kLp" secondAttribute="height" multiplier="0.6" id="qvs-jG-ILq"/>
-                                    <constraint firstItem="oHF-gJ-MjQ" firstAttribute="centerX" secondItem="tFq-Xv-kLp" secondAttribute="centerX" multiplier="1.25" id="uqe-DO-69n"/>
-                                    <constraint firstItem="1Ej-sm-LLA" firstAttribute="height" secondItem="tFq-Xv-kLp" secondAttribute="height" multiplier="0.6" id="vwa-xe-NhU"/>
-                                    <constraint firstAttribute="centerY" secondItem="bZD-rb-8kZ" secondAttribute="centerY" id="xB3-1I-DqS"/>
+                                    <constraint firstItem="1Ej-sm-LLA" firstAttribute="leading" secondItem="bZD-rb-8kZ" secondAttribute="trailing" constant="81" id="1uQ-xT-Z4D"/>
+                                    <constraint firstItem="bZD-rb-8kZ" firstAttribute="centerY" secondItem="tFq-Xv-kLp" secondAttribute="centerY" id="6Bi-Yv-v3r"/>
+                                    <constraint firstAttribute="trailing" secondItem="oHF-gJ-MjQ" secondAttribute="trailing" constant="110" id="En1-Sm-Bs6"/>
+                                    <constraint firstItem="bZD-rb-8kZ" firstAttribute="leading" secondItem="tFq-Xv-kLp" secondAttribute="leading" constant="50" id="Krq-nT-tn7"/>
+                                    <constraint firstItem="1Ej-sm-LLA" firstAttribute="leading" secondItem="bZD-rb-8kZ" secondAttribute="trailing" constant="50" id="aFe-RK-VS2"/>
+                                    <constraint firstItem="1Ej-sm-LLA" firstAttribute="leading" secondItem="tFq-Xv-kLp" secondAttribute="leading" constant="132" id="phT-N0-gtG"/>
+                                    <constraint firstItem="1Ej-sm-LLA" firstAttribute="centerY" secondItem="tFq-Xv-kLp" secondAttribute="centerY" id="qIh-Kl-08Z"/>
+                                    <constraint firstItem="oHF-gJ-MjQ" firstAttribute="centerY" secondItem="tFq-Xv-kLp" secondAttribute="centerY" id="qLc-du-uiP"/>
+                                    <constraint firstItem="oHF-gJ-MjQ" firstAttribute="leading" secondItem="1Ej-sm-LLA" secondAttribute="trailing" constant="51" id="qLp-9c-lo2"/>
+                                    <constraint firstAttribute="trailing" secondItem="iif-iK-tyj" secondAttribute="trailing" constant="50" id="ung-KB-0Q3"/>
+                                    <constraint firstItem="iif-iK-tyj" firstAttribute="leading" secondItem="oHF-gJ-MjQ" secondAttribute="trailing" constant="50" id="vfo-m8-0Hb"/>
+                                    <constraint firstItem="iif-iK-tyj" firstAttribute="centerY" secondItem="tFq-Xv-kLp" secondAttribute="centerY" id="ypq-9R-2BB"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1uQ-xT-Z4D"/>
+                                        <exclude reference="phT-N0-gtG"/>
+                                        <exclude reference="En1-Sm-Bs6"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tFq-Xv-kLp" secondAttribute="bottom" id="3Ue-FT-mfG"/>
                             <constraint firstItem="tFq-Xv-kLp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="88K-ga-sFY"/>
                             <constraint firstItem="kc2-ga-AEp" firstAttribute="trailing" secondItem="tFq-Xv-kLp" secondAttribute="trailing" id="8vt-GS-8VI"/>
+                            <constraint firstItem="tFq-Xv-kLp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="597" id="9Rp-Vd-nSo"/>
                             <constraint firstItem="kc2-ga-AEp" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="8" symbolic="YES" id="i0w-PJ-sf9"/>
                             <constraint firstItem="kc2-ga-AEp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="l17-s0-E5m"/>
                             <constraint firstItem="kc2-ga-AEp" firstAttribute="leading" secondItem="tFq-Xv-kLp" secondAttribute="leading" id="ymP-xl-thu"/>
@@ -119,9 +128,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="delete" width="104" height="104"/>
-        <image name="new-canvas" width="104" height="104"/>
-        <image name="photo" width="104" height="104"/>
-        <image name="save" width="104" height="104"/>
+        <image name="add_image" width="512" height="512"/>
+        <image name="delete" width="512" height="512"/>
+        <image name="new-canvas" width="512" height="512"/>
+        <image name="save" width="512" height="512"/>
     </resources>
 </document>

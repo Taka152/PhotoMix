@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "add_image_512px_1169751_easyicon.net.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "photo.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
